@@ -5,7 +5,7 @@ from odoo.exceptions import UserError
 
 class EstateProperty(models.Model):
     _name = "estate.property_estate"
-    _description = "Property of estate module Xvqdgddffdddghfdfc"
+    _description = "Property of estate module Xvqdgdsdfsgdffdddghfdfc"
     _rec_name = "title"
     _order = "sequence, id desc"
 
