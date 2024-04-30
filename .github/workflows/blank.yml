@@ -3,14 +3,20 @@ name: Create Pull Request
 on:
   push:
     branches:
-      - staging  # Déclenche le workflow lorsque des commits sont poussés sur la branche main
+      - staging  # Déclenche le workflow lorsque des commits sont poussés sur la branche staging
 
 jobs:
   create_pull_request:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
+        uses: actions/checkout@v2
+      
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v6
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "Merge staging into main"
+          title: "Merge staging into main"
+          labels: "automerge"
+          branch: "main"
